@@ -1,0 +1,57 @@
+
+.mainDiv{
+    height: 100%;
+    width: 100%;
+}
+.pageHeading{
+    margin: 0;
+    padding: 1rem;
+}
+.upsertForm{
+   height: calc(100% - 20vh); 
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+
+.inputField{
+    padding: 0.7rem 1rem;
+    width: 15rem;
+    border: none !important;
+    border-radius: 6px;
+    margin: 0.3rem;
+    background: rgba(255, 255, 255, 0.35);
+    color: white;
+    font-size: 0.9rem;
+}
+.inputField:focus{
+    border: none;
+    outline: none;
+}
+.inputField::placeholder{ 
+    color: white;
+}
+.submitButton{
+    padding: 0.7rem 1rem;
+    width: 17rem;
+    border: none !important;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    background: #6f079c;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.submitButton:focus{
+    border: none;
+    outline: none;
+}
+.numberInput::-webkit-inner-spin-button,
+.numberInput::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.numberInput {
+    -moz-appearance: textfield;
+}
