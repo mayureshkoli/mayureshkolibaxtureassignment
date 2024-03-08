@@ -1,0 +1,23 @@
+.userListMainDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.userListTable{
+    border: 1px solid white;
+    width: 95%;
+    margin-top: 2rem;
+}
+.userListTable tr, .userListTable td, .userListTable th{
+    border: 1px solid white;
+    padding: 0.5rem;
+}
+.backButton{
+    background: white;
+    color: black;
+    padding: 0.5rem 2rem;
+    border-radius: 6px;
+    border: none;
+    margin: 1rem;
+}

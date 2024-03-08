@@ -55,3 +55,18 @@
 .numberInput {
     -moz-appearance: textfield;
 }
+.cancelButton{
+    padding: 0.7rem 1rem;
+    width: 17rem;
+    border: none !important;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    background: white;
+    color: #6f079c;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+.cancelButton:focus{
+    border: none;
+    outline: none;
+}
