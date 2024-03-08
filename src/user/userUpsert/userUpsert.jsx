@@ -15,23 +15,29 @@ const UserUpsert = () => {
     const navigate = useNavigate();
     const { state } = useLocation();
     
+    // Load user data if editing an existing user
     useEffect(() => {
         if (state) {
             setFormData(state);
         }
     }, [state]);
 
+    // Handle cancellation of user update/creation
     const handleCancel = () => {
-      setFormData({
-          _id: uid(),
-          firstName: '',
-          lastName: '',
-          address: '',
-          email: '',
-          phone: ''
-      });
+        // Clear form data
+        setFormData({
+            _id: uid(),
+            firstName: '',
+            lastName: '',
+            address: '',
+            email: '',
+            phone: ''
+        });
+        // Navigate back to user list
+        navigate('/userList')
     };
 
+    // Handle input change for form fields
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -40,6 +46,7 @@ const UserUpsert = () => {
         });
     };
 
+    // Handle form submission
     const handleFormSubmit = (e) => {
         e.preventDefault();
         
@@ -59,7 +66,7 @@ const UserUpsert = () => {
             return;
         }
 
-        // Save or update user data
+        // Save or update user data in local storage
         const userList = JSON.parse(localStorage.getItem('userList')) || [];
         const existingUserIndex = userList.findIndex(user => user.email === formData.email);
         if (existingUserIndex !== -1) {
@@ -88,6 +95,7 @@ const UserUpsert = () => {
     return (
         <div className={styles.mainDiv}>
             <h1 className={styles.pageHeading}>USER UPSERT</h1>
+            <button className={styles.backButton} onClick={() => navigate('/userList')}>BACK TO USER-LIST</button>
             <form onSubmit={handleFormSubmit} className={styles.upsertForm}>
                 <input
                     type="text"
@@ -96,6 +104,7 @@ const UserUpsert = () => {
                     onChange={handleInputChange}
                     placeholder="First Name"
                     className={styles.inputField}
+                    required
                 />
                 <input
                     type="text"
@@ -104,6 +113,7 @@ const UserUpsert = () => {
                     onChange={handleInputChange}
                     placeholder="Last Name"
                     className={styles.inputField}
+                    required
                 />
                 <input
                     type="text"
@@ -112,6 +122,7 @@ const UserUpsert = () => {
                     onChange={handleInputChange}
                     placeholder="Address"
                     className={styles.inputField}
+                    required
                 />
                 <input
                     type="email"
@@ -120,17 +131,21 @@ const UserUpsert = () => {
                     onChange={handleInputChange}
                     placeholder="Email"
                     className={styles.inputField}
+                    required
                 />
                 <input
-                    type="text"
+                    type="number"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
                     placeholder="Phone"
                     className={`${styles.inputField} ${styles.numberInput}`}
+                    maxLength={10}
+                    required
                 />
                 <button type="submit" className={styles.submitButton}>SUBMIT</button>
             </form>
+            {/* Show cancel button only if editing existing user */}
             {state? <button className={styles.cancelButton} onClick={handleCancel}>CANCEL</button> : null}
         </div>
     );

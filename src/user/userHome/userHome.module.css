@@ -1,0 +1,29 @@
+.mainDiv{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+.pageHeading{
+    margin: 0;
+    padding: 1rem;
+    height: 10vh;
+}
+.userHomeSubDiv{
+    height: calc(100% - 40vh);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.button{
+    padding: 0.8rem 1rem;
+    width: 20rem;
+    border: none !important;
+    border-radius: 6px;
+    margin: 0.5rem 0;
+    background: #6f079c;
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
